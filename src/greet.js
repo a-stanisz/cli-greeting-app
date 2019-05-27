@@ -1,4 +1,4 @@
-import { sample, values } from "lodash";
+const _ = require("lodash");
 
 const GREETINGS = {
     en: "Good Morning!",
@@ -9,7 +9,7 @@ const GREETINGS = {
 };
 
 // greet by the language code
-export function greet(code) {
+exports.greet = function (code) {
     if (code) {
         // check if value associated with the language code exists
         if (!GREETINGS[code]) {
@@ -26,8 +26,8 @@ export function greet(code) {
 }
 
 // greet a random greeting
-// _.values returns values of objects in array
-// _.sample returns any random item in array
-export function greetRandom() {
-    return sample(values(GREETINGS));
+exports.greetRandom = function () {
+    // _.values returns values of objects in array
+    // _.sample returns any random item in array
+    return _.sample(_.values(GREETINGS));
 }
